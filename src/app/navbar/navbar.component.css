@@ -1,0 +1,24 @@
+img{
+    margin: 0px;
+    width:200px;  
+}
+h2{
+    display: inline;
+}
+
+#nav{
+    position: sticky;
+    top: 0;
+    z-index: 200;
+    background-color: white;
+}
+span{
+    cursor: pointer;
+    font-size: 18px;
+}
+#company{
+    display: flex;
+    justify-content: space-between;
+    
+    
+}

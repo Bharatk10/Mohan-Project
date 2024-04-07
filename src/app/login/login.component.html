@@ -1,0 +1,26 @@
+<html> 
+<head>
+</head>
+<body>
+<div id="bg"></div>
+
+<form [formGroup]="loginform" (ngSubmit)="proceedlogin()">
+ 
+  <div class="form-field">
+    <input type="text" formControlName="id" placeholder="User Id" required/>
+  </div>
+  
+  <div class="form-field">
+    <input type="password" formControlName="password" placeholder="Password" required/>                         </div>
+  
+  <div class="form-field">
+    <button class="btn" type="submit">Log in</button>
+  </div>
+  
+</form>
+
+  
+</body>
+</html>
+
+

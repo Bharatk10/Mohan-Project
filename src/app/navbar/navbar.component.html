@@ -1,0 +1,15 @@
+
+<div id="nav">
+
+  <div id="company">
+
+    <img src="../../../assets/images/HDFC_Bank_nav.png">
+    <span id="logout" (click)="logout()"><i class="fa-solid fa-right-from-bracket fa-xl"></i> Log out</span>
+  </div>
+    <nav class="navbar navbar-dark bg-primary">
+    <div class="container-fluid">
+    <a class="navbar-brand" href="home">HDFC</a>
+    <span *ngIf="loggedInUser"><i class="fa-solid fa-user fa-xl"></i> {{ loggedInUser }}</span>
+    </div>
+  </nav>
+  </div>

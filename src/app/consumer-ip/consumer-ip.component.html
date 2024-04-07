@@ -1,0 +1,64 @@
+<div class="container mt-4">
+    <div class="row">
+      <div class="col">
+        <label for="appName" class="form-label">Enter App Name:</label>
+        <input type="text" id="appName" class="form-control" list="appNames" (input)="onAppNameChange($event)">
+        <datalist id="appNames">
+          <option *ngFor="let app of consumerIpApps" [value]="app.consumer_name">{{ app.consumer_name }}</option>
+        </datalist>
+      </div>
+      <div class="col">
+        <label for="consumerIp" class="form-label">Consumer Ip</label>
+        <input type="text" id="consumerIp" class="form-control" [(ngModel)]="selectedApp.consumer_ip" [readonly]="true">
+      </div>
+    </div>
+    <div class="row mt-3">
+      <div class="col">
+        <button class="btn btn-primary" [disabled]="isUpdateButtonDisabled()" (click)=" showUpdateForm()">Update</button>
+      </div>
+      <div class="col">
+        <button class="btn btn-success" [disabled]="isAddButtonDisabled()" (click)="showNewForm()">Add</button>
+      </div>
+    </div>
+  </div>
+  
+
+  <div *ngIf="isNewFormVisible" class="container mt-4">
+    <div class="row">
+      <div class="col">
+        <label for="newAppName" class="form-label">New App Name:</label>
+        <input type="text" id="newAppName" class="form-control" [(ngModel)]="newAppName">
+      </div>
+      <div class="col">
+        <label for="newAppId" class="form-label">New App ID:</label>
+        <input type="text" id="newIpId" class="form-control" [(ngModel)]="newIpId">
+      </div>
+    </div>
+    <div class="row mt-3">
+      <div class="col">
+        <button class="btn btn-primary" (click)="addNewApp()">Add</button>
+        <button class="btn btn-secondary" style="margin-left: 20px;" (click)="cancelNewApp()">Cancel</button>
+      </div>
+    </div>
+  </div>
+  
+<div *ngIf="isUpdateFormVisible" class="container mt-4">
+    <div class="row">
+      <div class="col">
+        <label for="updateAppName" class="form-label">Updated App Name:</label>
+        <input type="text" id="id" [(ngModel)]="selectedApp.id" hidden>
+        <input type="text" id="updateAppName" class="form-control" [(ngModel)]="updatedAppName">
+      </div>
+      <div class="col">
+        <label for="updateIpId" class="form-label">App ID:</label>
+        <input type="text" id="updateIpId" class="form-control" [(ngModel)]="selectedApp.consumer_ip" [readonly]="true">
+      </div>
+    </div>
+    <div class="row mt-3">
+      <div class="col">
+        <button class="btn btn-primary" [disabled]="isUpdateFormInvalid()" (click)="updateApp()">Update</button>
+        <button class="btn btn-secondary" style="margin-left: 20px;" (click)="cancelUpdate()">Cancel</button>
+      </div>
+    </div>
+  </div>
+  
